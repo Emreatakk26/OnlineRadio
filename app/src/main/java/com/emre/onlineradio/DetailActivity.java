@@ -27,7 +27,7 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_detail);
 
-        mRadioManager = RadioManager.with(getApplicationContext());
+        /*mRadioManager = RadioManager.with(getApplicationContext());
         mRadioManager.registerListener(this);
         mRadioManager.setLogging(true);
 
@@ -43,7 +43,7 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
                 play();
                 mRadioManager.startRadio(RADIO_URL[MusicContent.radioposition]);
             }
-        });
+        });*/
 
         /*
         //TODO radiopositionu kontrol et!!!
