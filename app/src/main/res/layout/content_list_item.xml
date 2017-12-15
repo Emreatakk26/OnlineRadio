@@ -35,22 +35,22 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <!--
+                        <TextView
+                            android:id="@+id/artist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />-->
 
-            <TextView
-                android:id="@+id/artist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                    </LinearLayout>
 
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/inner_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                    <!--<TextView
+                        android:id="@+id/duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/inner_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />-->
     </LinearLayout>
 
 </FrameLayout>
