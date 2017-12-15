@@ -80,7 +80,7 @@
         android:layout_below="@id/time"
         android:layout_centerHorizontal="true"
         android:transitionGroup="true">
-
+<!--
         <ImageView
             android:id="@+id/repeat"
             android:layout_width="wrap_content"
@@ -88,18 +88,18 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:src="@drawable/ic_repeat_white_24dp"/>
-
+-->
         <Space
             android:layout_width="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"/>
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/shuffle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:src="@drawable/ic_shuffle_white_24dp"/>
+            android:src="@drawable/ic_shuffle_white_24dp"/>-->
 
     </LinearLayout>
 

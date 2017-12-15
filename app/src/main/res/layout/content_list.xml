@@ -91,7 +91,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/myfavorilist"
+            android:text="Radyo Listesi"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
 
         <TextView
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
-            android:text="102 songs"
+            android:text="5 radyo"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
         <ImageView
@@ -120,7 +120,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/playlist"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/content_list_item"/>
+        tools:listitem="@layout/content_list_item" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

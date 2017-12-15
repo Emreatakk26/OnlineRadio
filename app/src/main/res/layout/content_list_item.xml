@@ -8,12 +8,15 @@
     android:transitionGroup="true">
 
     <LinearLayout
+        android:id="@+id/radyolistesi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
         android:paddingEnd="@dimen/activity_horizontal_margin"
-        android:paddingStart="@dimen/activity_horizontal_margin">
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        >
+
 
         <ImageView
             android:id="@+id/cover"
@@ -35,22 +38,9 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-            <!--
-                        <TextView
-                            android:id="@+id/artist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />-->
 
-                    </LinearLayout>
+         </LinearLayout>
 
-                    <!--<TextView
-                        android:id="@+id/duration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/inner_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />-->
     </LinearLayout>
 
 </FrameLayout>

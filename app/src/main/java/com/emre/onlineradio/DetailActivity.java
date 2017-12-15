@@ -28,7 +28,7 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
     private MusicCoverView mCoverView;
     private ImageView forward,rewind;
     //http://dinle.romantikses.com:5959/listen.pls
-    private String[] RADIO_URL = {"http://www.dostmedya.com/ply/1001fm.pls", "http://46.20.4.61/listen.pls"};
+    private String[] RADIO_URL = {"http://stream.radyoalaturka.com.tr:9100/listen.pls"};
     String [] radyolistesi={"Radyo Alaturka","Kral FM","PowerTürk","Best FM","Baba Radyo","Türkü Radyo","Joy Türk","Radyo Seymen","Süper FM","Radyo Viva"};
 
 
@@ -40,6 +40,8 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_detail);
 
+
+
         ((TextView)findViewById(R.id.sanatci)).setText("");
         ((TextView)findViewById(R.id.sarkiadi)).setText(radyolistesi[MusicContent.radioposition]);
 
@@ -48,6 +50,7 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
         mRadioManager = RadioManager.with(getApplicationContext());
         mRadioManager.registerListener(this);
         mRadioManager.setLogging(true);
+
 
 
         forward = (ImageView) findViewById(R.id.forward);

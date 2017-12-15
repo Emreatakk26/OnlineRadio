@@ -9,7 +9,7 @@
         android:id="@+id/sarkiadi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instant Crush"
+        android:text="Rastgele"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="30sp"/>
 
@@ -24,7 +24,7 @@
         android:id="@+id/sanatci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Daft Punk"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="?android:attr/textColorSecondary"/>
 
