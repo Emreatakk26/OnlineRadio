@@ -34,4 +34,7 @@ dependencies {
     compile 'com.github.iammert:RadioPlayerService:efe3b5420b'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.firebase:firebase-database:11.6.2'
 }
+
+apply plugin: 'com.google.gms.google-services'

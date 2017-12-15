@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "874186185576",
+    "firebase_url": "https://onlineradio-1c833.firebaseio.com",
+    "project_id": "onlineradio-1c833",
+    "storage_bucket": "onlineradio-1c833.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874186185576:android:e0c2fccf6a884fb7",
+        "android_client_info": {
+          "package_name": "com.emre.onlineradio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874186185576-e2ra8jlosbfp21m48h4nkvjf00eqpbef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgfoq969RD2kalODMSjojjF0Oi5DMF5As"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
