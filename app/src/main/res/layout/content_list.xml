@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/album_cover_daft_punk"
+        android:src="@drawable/anaresim"
         android:transitionName="@string/transition_name_cover"
         app:layout_heightPercent="35%"/>
 
@@ -104,8 +104,8 @@
 
         <ImageView
             android:id="@+id/channeladd"
-            android:layout_width="@dimen/design_fab_size_mini"
-            android:layout_height="wrap_content"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
