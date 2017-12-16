@@ -28,8 +28,8 @@ public abstract class PlayerActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             final int position = mService.getPosition();
-            final int duration = mService.getDuration();
-            onUpdateProgress(position, duration);
+            //final int duration = mService.getDuration();
+            //onUpdateProgress(position, duration);
             sendEmptyMessageDelayed(0, DateUtils.SECOND_IN_MILLIS);
         }
     };

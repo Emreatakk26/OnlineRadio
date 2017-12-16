@@ -3,7 +3,10 @@ package com.emre.onlineradio;
 import android.os.Bundle;
 import android.transition.Transition;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andremion.music.MusicCoverView;
 import com.emre.music.MusicContent;
@@ -12,12 +15,22 @@ import com.emre.view.TransitionAdapter;
 import co.mobiwise.library.RadioListener;
 import co.mobiwise.library.RadioManager;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class DetailActivity extends PlayerActivity implements RadioListener {
 
+
+    FirebaseDatabase db;
     private MusicCoverView mCoverView;
     private ImageView forward,rewind;
+    //http://dinle.romantikses.com:5959/listen.pls
+    private String[] RADIO_URL = {"http://stream.radyoalaturka.com.tr:9100/listen.pls"};
+    String [] radyolistesi={"Radyo Alaturka","Kral FM","PowerTürk","Best FM","Baba Radyo","Türkü Radyo","Joy Türk","Radyo Seymen","Süper FM","Radyo Viva"};
 
-    private final String[] RADIO_URL = {"http://dinle.romantikses.com:5959/listen.pls", "http://46.20.4.61/listen.pls"};
 
     RadioManager mRadioManager;
 
@@ -27,40 +40,62 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_detail);
 
+
+
+        ((TextView)findViewById(R.id.sanatci)).setText("");
+        ((TextView)findViewById(R.id.sarkiadi)).setText(radyolistesi[MusicContent.radioposition]);
+
+        vericek();
+
         mRadioManager = RadioManager.with(getApplicationContext());
         mRadioManager.registerListener(this);
         mRadioManager.setLogging(true);
+
+
 
         forward = (ImageView) findViewById(R.id.forward);
         forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MusicContent.radioposition++;
-
+                if(MusicContent.radioposition==RADIO_URL.length-1)
+                {
+                    MusicContent.radioposition=0;
+                }
+                else {
+                    MusicContent.radioposition++;
+                }
                 mRadioManager.stopRadio();
                 pause();
 
                 play();
                 mRadioManager.startRadio(RADIO_URL[MusicContent.radioposition]);
+
+                ((TextView)findViewById(R.id.sanatci)).setText("");
+                ((TextView)findViewById(R.id.sarkiadi)).setText(radyolistesi[MusicContent.radioposition]);
+
             }
         });
-
-        /*
-        //TODO radiopositionu kontrol et!!!
-         */
 
 
         rewind = (ImageView) findViewById(R.id.rewind);
         rewind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MusicContent.radioposition--;
-
+                if(MusicContent.radioposition==0)
+                {
+                    MusicContent.radioposition=RADIO_URL.length-1;
+                }
+                else {
+                    MusicContent.radioposition--;
+                }
                 mRadioManager.stopRadio();
                 pause();
 
                 play();
                 mRadioManager.startRadio(RADIO_URL[MusicContent.radioposition]);
+
+                ((TextView)findViewById(R.id.sanatci)).setText("");
+                ((TextView)findViewById(R.id.sarkiadi)).setText(radyolistesi[MusicContent.radioposition]);
             }
         });
 
@@ -127,7 +162,7 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
             @Override
             public void run() {
                 //TODO Do UI works here.
-                //mTextViewControl.setText("RADIO STATE : LOADING...");
+                //Toast.makeText(getApplicationContext(),"RADIO STATE : LOADING...",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -171,4 +206,34 @@ public class DetailActivity extends PlayerActivity implements RadioListener {
     }
 
 
+
+    public void vericek()
+    {
+        db=FirebaseDatabase.getInstance();
+
+                DatabaseReference okuma = db.getReference("radio");
+                okuma.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                        String furkan="";
+                        Iterable<DataSnapshot> keys = dataSnapshot.getChildren();
+                        for (DataSnapshot key:keys)
+                        {
+                            furkan+=key.getValue().toString()+'\n';
+                        }
+                        RADIO_URL = furkan.split("\n");
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+    }
 }

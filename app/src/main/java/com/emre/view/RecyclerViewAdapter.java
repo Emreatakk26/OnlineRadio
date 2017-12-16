@@ -33,8 +33,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.mItem = mValues.get(position);
         holder.mCoverView.setImageResource(holder.mItem.getCover());
         holder.mTitleView.setText(holder.mItem.getTitle());
-        holder.mArtistView.setText(holder.mItem.getArtist());
-        holder.mDurationView.setText(DateUtils.formatElapsedTime(holder.mItem.getDuration()));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +51,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public final View mView;
         public final ImageView mCoverView;
         public final TextView mTitleView;
-        public final TextView mArtistView;
-        public final TextView mDurationView;
         public MusicItem mItem;
 
         public ViewHolder(View view) {
@@ -62,8 +58,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             mView = view;
             mCoverView = (ImageView) view.findViewById(R.id.cover);
             mTitleView = (TextView) view.findViewById(R.id.title);
-            mArtistView = (TextView) view.findViewById(R.id.artist);
-            mDurationView = (TextView) view.findViewById(R.id.duration);
         }
     }
 

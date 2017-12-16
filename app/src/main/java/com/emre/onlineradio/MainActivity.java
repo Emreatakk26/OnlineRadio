@@ -2,17 +2,32 @@ package com.emre.onlineradio;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.andremion.music.MusicCoverView;
+import com.emre.RecyclerItemClickListener;
 import com.emre.music.MusicContent;
 import com.emre.view.RecyclerViewAdapter;
 
+
+
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 public class MainActivity extends PlayerActivity {
 
     private View mCoverView;
@@ -40,9 +55,24 @@ public class MainActivity extends PlayerActivity {
         assert recyclerView != null;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerViewAdapter(MusicContent.ITEMS));
-    }
 
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        MusicContent.radioposition=position;
+                        onFabClick(mFabView);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+    }
     public void onFabClick(View view) {
+
+
+
         //noinspection unchecked
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
                 new Pair<>(mCoverView, ViewCompat.getTransitionName(mCoverView)),
@@ -51,7 +81,10 @@ public class MainActivity extends PlayerActivity {
                 new Pair<>(mDurationView, ViewCompat.getTransitionName(mDurationView)),
                 new Pair<>(mProgressView, ViewCompat.getTransitionName(mProgressView)),
                 new Pair<>(mFabView, ViewCompat.getTransitionName(mFabView)));
-        ActivityCompat.startActivity(this, new Intent(this, DetailActivity.class), options.toBundle());
+
+        Intent i=new Intent(this, DetailActivity.class);
+        //i.putExtra("hangiradyo",hangiradyo);
+        ActivityCompat.startActivity(this,i , options.toBundle());
     }
 
 }

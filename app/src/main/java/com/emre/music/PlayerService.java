@@ -9,7 +9,7 @@ import android.util.Log;
 public class PlayerService extends Service {
 
     private static final String TAG = PlayerService.class.getSimpleName();
-    private static final int DURATION = 335;
+    //private static final int DURATION = 335;
 
     // Binder given to clients
     private final IBinder mBinder = new LocalBinder();
@@ -57,9 +57,9 @@ public class PlayerService extends Service {
         return 0;
     }
 
-    public int getDuration() {
+    /*public int getDuration() {
         return DURATION;
-    }
+    }*/
 
     private static class Worker extends Thread {
 
@@ -69,12 +69,12 @@ public class PlayerService extends Service {
         @Override
         public void run() {
             try {
-                while (position < DURATION) {
+                //while (position < DURATION) {
                     sleep(1000);
                     if (!paused) {
                         position++;
                     }
-                }
+                //}
             } catch (InterruptedException e) {
                 Log.d(TAG, "Player unbounded");
             }
